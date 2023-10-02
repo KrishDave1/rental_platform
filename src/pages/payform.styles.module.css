@@ -1,0 +1,46 @@
+.pay {
+    width: 50%;
+  }
+  
+  .payment {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    margin: 0px auto;
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 600px;
+  }
+  
+  .form input {
+    width: 300px;
+    font-size: 20px;
+  }
+  .button {
+    background-color: rgb(21, 183, 62);
+    width: 130px;
+    border-radius: 8px;
+    border: 2px solid rgb(34, 83, 158);
+    cursor: pointer;
+    color: white;
+    padding: 5px 5px;
+    transition: 0.4s ease-in;
+  }
+  .button:hover {
+    background-color: aquamarine;
+  }
+  .formcont {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .span {
+    padding: 30px 0px;
+    margin: 30px;
+  }
+  
