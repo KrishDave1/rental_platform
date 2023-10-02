@@ -44,7 +44,7 @@ const Wishlist = () => {
                   </div>
                   <div className="mrp-text">
                     <h5>Our Price:</h5>
-                    <h4>₹ {PriceRs}</h4>
+                    <h4>₹ {PriceRs.toFixed(2)}</h4>
                   </div>
                   <div></div>
                   <div className="cart-buy-btn">

@@ -58,10 +58,10 @@ export default function CartItem({ item }) {
               Our Price: ₹{(PriceRs * cartItems[item.id]).toFixed(2)}/mo
             </p>
           </div>
-          <div>
+          {/* <div>
             Total Price for {months} months: ₹{" "}
             {(PriceRs.toFixed(2) * months * cartItems[item.id]).toFixed(2)}
-          </div>
+          </div> */}
 
           <div className="flex px-4 mb-7">
             <button>
@@ -78,7 +78,7 @@ export default function CartItem({ item }) {
                 onClick={() => handleAdd(item.id)}
               />
             </button>
-            <div className="border-solid border-2 mx-5 rounded-md border-slate-100">
+            {/* <div className="border-solid border-2 mx-5 rounded-md border-slate-100">
               <select
                 name="months"
                 id="months"
@@ -90,7 +90,7 @@ export default function CartItem({ item }) {
                   </option>
                 ))}
               </select>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="p-5 ">
