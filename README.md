@@ -122,7 +122,7 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
    npm run dev
    ```
 
-   Your React frontend will now be running at `http://localhost:3000/`.
+   Your React frontend will now be running at `http://localhost:5173/`.
 
 ### Running Both Servers Together:
 
