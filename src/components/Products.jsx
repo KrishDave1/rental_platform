@@ -62,6 +62,10 @@ const Products = () => {
     // if (cartItems[singleProduct.id] < 1) toastfn(singleProduct);
   }
 
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <section className="section-center">
@@ -85,20 +89,25 @@ const Products = () => {
                 <div className="title-text">
                   <h5>{Title}</h5>
                 </div>
-                <div className="mt-0">
-                  <AiOutlineStar color="yellow" />{" "}
+                <div className=" flex">
+                  <AiOutlineStar
+                    size={25}
+                    style={{ fill: "yellow", stroke: "yellow" }}
+                  />{" "}
+                  <p>|</p>
                   {Number(Rating) === 0 ? 2 : Number(Rating).toFixed(1)}
-                  <p>
+                  <p className="font-bold text-black">
                     {Reviews === "undefined" || Number(Reviews) <= 20
                       ? 169 + " Reviews"
                       : Reviews + " Reviews"}
                   </p>
                 </div>
-                <div className="mrp-text">
-                  <h5>Our Price :</h5>
-                  <h4>₹ {PriceRs.toFixed(2)}/mo</h4>
+                <div className="mrp-text my-3">
+                  <h5 className="font-sm">
+                    Our Price: ₹ {PriceRs.toFixed(2)}/mo
+                  </h5>
                 </div>
-                <div>
+                <div className="my-3">
                   Total Price for {months} months: ₹{" "}
                   {PriceRs.toFixed(2) * months}
                 </div>
@@ -165,6 +174,7 @@ const Products = () => {
           pageClassName={"item pagination-page "}
           pageRangeDisplayed={2}
           previousClassName={"item previous"}
+          onClick={handleClick}
           // previousLabel={
           //   // <ArrowBackIosIcon style={{ fontSize: 18, width: 150 }} />
           // }

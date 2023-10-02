@@ -10,10 +10,10 @@ export const Display_Slider = () => {
   return (
     <div className="grid place-items-center my-[20px] bg-gray-400 p-5 slider-bg-image">
       <SimpleImageSlider
-        width={900}
+        width={700}
         autoPlay={true}
         autoPlayDelay={3.0}
-        height={500}
+        height={300}
         slideDuration={1.0}
         images={images}
         showBullets={true}
