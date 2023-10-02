@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from .manager import UserManager
 import uuid
 # Create your models here.
 class CustomUser(AbstractUser):
@@ -10,6 +11,11 @@ class CustomUser(AbstractUser):
     # by default parameters = username, password
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['phone_Number']
+
+    objects = UserManager()
+
+    def __str__(self) -> str:
+        return (self.username)
 
 class Product(models.Model):
     Title = models.CharField(max_length=200)
