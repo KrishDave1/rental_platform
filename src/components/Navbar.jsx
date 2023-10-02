@@ -5,6 +5,7 @@ import { BsPersonFill } from "react-icons/bs";
 import { useGlobalContext } from "../context";
 import Search from "./Search";
 import { GrLocation } from "react-icons/gr";
+import { AiOutlineDropbox } from "react-icons/ai";
 
 export const Navbar = () => {
   const { setSidebar } = useGlobalContext();
@@ -17,7 +18,12 @@ export const Navbar = () => {
     <nav className="">
       <ul className="list-none flex flex-wrap justify-evenly items-center bg-slate-200 h-14 text-xl py-2">
         <Link to="/">
-          <li>Rental.in</li>
+          {/* <li>
+            {" "}
+            <AiOutlineDropbox />
+            Rental.in
+          </li> */}
+          <img src="src/assets/images/logo.jpg" className="w-24 h-12 m-2" />
         </Link>
 
         <li className="px-10">
@@ -38,9 +44,7 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className="px-10">
-          <Link to="/login">
-            Login
-          </Link>
+          <Link to="/login">Login</Link>
         </li>
         <li className="px-10">
           <Link to="/wishlist">

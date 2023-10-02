@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGlobalContext } from '../context';
 import Products from '../components/Products';
 
-const Categories = () => {
+const Rent = () => {
   const { products, setCategoriesProducts } = useGlobalContext();
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -122,8 +122,9 @@ const Categories = () => {
           </div>
       </div>
       <Products />
+      
     </>
   );
 };
 
-export default Categories;
+export default Rent;

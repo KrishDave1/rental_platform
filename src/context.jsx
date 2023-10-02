@@ -108,7 +108,7 @@ const AppProvider = ({ children }) => {
         categoriesProducts, setCategoriesProducts,
         city, setCity,
         totalPrice,setTotalPrice,
-        months, setMonths
+        months,setMonths
       }}
     >
       {children}

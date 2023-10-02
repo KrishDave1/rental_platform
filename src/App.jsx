@@ -1,3 +1,5 @@
+/** @format */
+
 import "./App.css";
 import { Navbar, Sidebar } from "./components";
 import { useState, useEffect } from "react";
@@ -10,10 +12,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import Wishlist from "./pages/Wishlist";
 import data from "../data/data.json";
+// import Rent from "./components/Rent";
 
 
 const App = () => {
-  // const { sidebar } = useGlobalContext();
+  const { sidebar } = useGlobalContext();
 
   // const data20 = async() => {
   //   const response = await fetch("http://localhost:3001/Refer");
@@ -81,7 +84,7 @@ const App = () => {
       <main>
         <Navbar />
         {/* <Nav name={name} setName={setName} /> */}
-        {/* {sidebar && <Sidebar />} */}
+        {sidebar && <Sidebar />}
         <Routes>
           <Route path="/" element={<Home name={name} />} />
           <Route path="cart" element={<Cart />} />
