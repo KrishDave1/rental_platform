@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from .manager import UserManager
 import uuid
 # Create your models here.
 class CustomUser(AbstractUser):
@@ -10,6 +11,11 @@ class CustomUser(AbstractUser):
     # by default parameters = username, password
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['phone_Number']
+
+    objects = UserManager()
+
+    def __str__(self) -> str:
+        return (self.username)
 
 class Product(models.Model):
     Title = models.CharField(max_length=200)
@@ -41,6 +47,19 @@ class Cart_Item(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="items")
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="cartitems")
     quantity = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return (self.product.Title)
+    
+class City(models.Model):
+    city_Name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return (self.city_Name)
+    
+class City_Product_Relation(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return (self.product.Title)
