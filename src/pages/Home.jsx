@@ -7,9 +7,10 @@ import {
 } from "../components";
 const Home = (props) => {
   return (
-    <div>
+    <div className="">
       <Display_Slider />
-      {props.name ? 'Hi ' + props.name : 'You are not logged in'}
+      {props.name ? "Hi " + props.name : "You are not logged in"}
+      <img className="w-full h-1/2" src="../homepage1.jpg" />
     </div>
   );
 };
