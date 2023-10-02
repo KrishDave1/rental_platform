@@ -1,11 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # Descriptive Report: Full Stack Rental Website
 
 ## Introduction
@@ -40,6 +32,124 @@ The checkout page offers a range of payment options, with the default option bei
 
 ### Location Integration
 Users can customize their experience by selecting their location, which is displayed in the navbar. This feature can be particularly useful for users who wish to find products available in their specific area.
+
+Certainly! Here's a detailed guide for setting up your project with all the required packages:
+
+## Backend (Django) Setup:
+
+### Prerequisites:
+
+1. **Python**: Install Python (3.6 or higher) from the [official website](https://www.python.org/downloads/).
+
+2. **Pip**: Python comes with `pip` pre-installed. Make sure you're using a recent version of `pip`.
+
+### Installation:
+
+1. **Create a Virtual Environment** (Optional but recommended):
+
+   ```bash
+   python3 -m venv myenv
+   source myenv/bin/activate   # On Windows, use `myenv\Scripts\activate`
+   ```
+
+2. **Clone Your Django Project** (if not already done):
+
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   ```
+
+3. **Install Required Packages**:
+
+   ```bash
+   pip install django==4.2.5  # Install Django 4.2.5
+   pip install djangorestframework  # Install Django REST framework
+   pip install django-oauth-toolkit  # Install OAuth2 Provider
+   pip install django-cors-headers  # Install Django CORS headers
+   ```
+
+   - `django-oauth-toolkit` is important for OAuth2 authentication, and `django-cors-headers` is necessary if you're working with frontend and backend on different origins.
+
+4. **Database Migration**:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+   This will create the necessary database tables based on your Django models.
+
+5. **Create Superuser** (Optional but recommended for accessing Django admin):
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+   Follow the prompts to create a superuser account.
+
+6. **Run Django Server**:
+
+   ```bash
+   python manage.py runserver
+   ```
+
+   Your Django backend will now be running at `http://127.0.0.1:8000/`.
+
+## Frontend (React) Setup:
+
+### Prerequisites:
+
+1. **Node.js and npm**: Install Node.js (which includes npm) from the [official website](https://nodejs.org/).
+
+### Installation:
+
+1. **Navigate to Frontend Directory**:
+
+   ```bash
+   cd frontend
+   ```
+
+2. **Install Required Packages**:
+
+   ```bash
+   npm install axios react react-dom react-router-dom react-icons react-paginate react-simple-image-slider react-social-icons react-toastify
+   ```
+
+   These packages include dependencies for React, routing, API calls, icons, pagination, image slider, social icons, and toast notifications.
+
+3. **Start React Server**:
+
+   ```bash
+   npm run dev
+   ```
+
+   Your React frontend will now be running at `http://localhost:3000/`.
+
+### Running Both Servers Together:
+
+- Start your Django server as mentioned in step 6 above.
+- In a separate terminal, navigate to the `frontend` directory and run the React server with `npm run dev`.
+
+## Technologies Used:
+
+### Backend:
+
+- **Django**: A high-level Python web framework.
+- **Django REST Framework**: A powerful and flexible toolkit for building Web APIs.
+- **OAuth2 Provider**: For implementing OAuth 2.0 authentication.
+- **SQLite**: A lightweight, serverless, self-contained SQL database.
+
+### Frontend:
+
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: For adding navigation to your React application.
+- **Axios**: A promise-based HTTP client for making API calls.
+- **React Icons**: A library of popular icons for React.
+- **React Paginate**: A component for handling pagination in React.
+- **React Simple Image Slider**: A simple image slider component for React.
+- **React Social Icons**: A set of social media icons as React components.
+- **React Toastify**: A library for toast notifications in React.
+
+### Contributors:
 
 ## Technical Details
 
