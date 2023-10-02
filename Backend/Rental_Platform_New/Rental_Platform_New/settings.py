@@ -52,7 +52,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -140,8 +139,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ORIGIN = 'http://localhost:3000'
 
 
-STATIC_URL= '/static/'
-
-STATIC_ROOT= BASE_DIR / 'static'
-
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
