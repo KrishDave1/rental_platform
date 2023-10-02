@@ -9,10 +9,8 @@ import { Cart, Home, Login, Profile, Rent,Checkout } from "./pages";
 import { Footer } from "./components";
 import SignUp from "./pages/SignUp";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Nav from "./components/Nav";
 import Wishlist from "./pages/Wishlist";
 import data from "../data/data.json";
-// import Rent from "./components/Rent";
 
 
 const App = () => {
@@ -32,7 +30,6 @@ const App = () => {
     <BrowserRouter>
       <main>
         <Navbar />
-        {/* <Nav name={name} setName={setName} /> */}
         {sidebar && <Sidebar />}
         <Routes>
           <Route path="/" element={<Home name={name} />} />

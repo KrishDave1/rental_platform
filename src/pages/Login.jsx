@@ -15,20 +15,25 @@ function Login(props = { setName: (name) => {} }) {
   const submit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://192.168.66.165:55000/login/", {
-      method: "POST",
+    const user = {
+      name: name,
+      password: password,
+    };
+
+    const { data } = await axios.post("http://127.0.0.1:8000/token/", {
+      user,
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-      body: JSON.stringify({
-        email,
-        password,
-      }),
     });
 
-    const content = await response.json();
+    localStorage.clear();
+    localStorage.setItem("access_token", data.access);
+    localStorage.setItem("refresh_token", data.refresh);
+    axios.defaults.headers.common["Authorization"] = `Bearer ${data["access"]}`;
+    window.location.href = "/";
 
-    setRedirect(true);
-    props.setName(content.name);
+    // setRedirect(true);
+    // props.setName(content.name);
   };
 
   const navigate = useNavigate();
@@ -93,6 +98,7 @@ function Login(props = { setName: (name) => {} }) {
           </div>
           <div>
             <button
+              type="submit"
               className="w-24 rounded bg-blue-400 p-2 text-lg hover:bg-blue-700"
               onClick={submit}
             >

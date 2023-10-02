@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 // import {Redirect, redirect} from "react-router-dom";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -22,28 +23,28 @@ export default function SignUp() {
   //   }
   // }
 
-      const submit = async (e) => {
-        e.preventDefault();
-        console.log(name, email, password);
-        if (password !== cpassword) {
-          return setError("Passwords do not match");
-        }
-        await fetch("http://192.168.66.165:55000/register/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-          }),
-        });
+  const submit = async (e) => {
+    e.preventDefault();
+    console.log(name, email, password);
+    if (password !== cpassword) {
+      return setError("Passwords do not match");
+    }
 
-        setRedirect(true);
-  }
-  
-  if (redirect) {
-    return navigate("/login");
-  }
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/register/", {
+        name,
+        email,
+        password,
+      });
+
+      console.log("Response:", response);
+
+      // If you want to redirect after successful registration, uncomment the following line
+      // navigate("/login");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
 
   //     try {

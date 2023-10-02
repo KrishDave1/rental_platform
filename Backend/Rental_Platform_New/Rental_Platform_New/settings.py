@@ -137,8 +137,3 @@ AUTH_USER_MODEL = 'prime.CustomUser'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ORIGIN = 'http://localhost:3000'
-<<<<<<< HEAD
-
-
-=======
->>>>>>> a42712b898c75b369dbc8f683c1a98e1aa1ebca2
