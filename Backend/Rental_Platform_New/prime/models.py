@@ -44,3 +44,16 @@ class Cart_Item(models.Model):
 
     def __str__(self) -> str:
         return (self.product.Title)
+    
+class City(models.Model):
+    city_Name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return (self.city_Name)
+    
+class City_Product_Relation(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return (self.product.Title)
