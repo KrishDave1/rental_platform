@@ -16,7 +16,7 @@ function getDefaultCartPrice(){
   return cart;
 }
 
-const dummyProducts = "http://localhost:7100/Products";
+const dummyProducts = "http://127.0.0.1:8000/products/";
 
 const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
@@ -80,6 +80,7 @@ const AppProvider = ({ children }) => {
   async function fetchProducts() {
     const res=await fetch(dummyProducts);
     const data= await res.json();
+    console.log(data);
     setProducts(data);
   }
 
