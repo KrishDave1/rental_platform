@@ -5,16 +5,16 @@ import axios from "axios";
 const AppContext = React.createContext();
 function getDefaultCart() {
   let cart = {};
-  for (let i = 1; i < 341; i++) {
+  for (let i = 16; i < 356; i++) {
     cart[i] = 0;
   }
   return cart;
 }
-function getDefaultCartPrice(){
-  let cart={};
-  for(let j=1;j<341;j++) cart[j]=0;
-  return cart;
-}
+// function getDefaultMonths() {
+//   let cart1 = {};
+//   for (let j = 1; j < 341; j++) cart1[j] = 0;
+//   return cart1;
+// }
 
 const dummyProducts = "http://127.0.0.1:8000/products/";
 
@@ -23,14 +23,17 @@ const AppProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
   const [sidebar, setSidebar] = useState(false);
   const [wishItems, setWishItems] = useState(getDefaultCart());
-  const [searchTerm,setSearchTerm]=useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [categoriesProducts, setCategoriesProducts] = useState([]);
   const [city, setCity] = useState("");
-  const [totalPrice,setTotalPrice]=useState(getDefaultCartPrice());
-  const [months,setMonths]=useState("1");
+  // const [totalPrice, setTotalPrice] = useState(getDefaultCartPrice());
+  // const [months, setMonths] = useState(getDefaultMonths());
   function handleAdd(id) {
     setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
   }
+  // function handleSelect(id, months) {
+  //   setCity((prev) => ({ ...prev, [id]: months }));
+  // }
   function handleDelete(id) {
     setCartItems((prev) => ({ ...prev, [id]: prev[id] - 1 }));
   }
@@ -49,15 +52,15 @@ const AppProvider = ({ children }) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         let iteminfo = products.find((it) => it.id === Number(item));
-        amt += cartItems[item] * (iteminfo.Price*83)/100;
+        amt += (cartItems[item] * (iteminfo.Price * 83)) / 100;
       }
     }
     return amt;
   }
-  function getTotalPrice(){
-    let a=0;
-    for(const i in totalPrice){
-      let info=products.find()
+  function getTotalPrice() {
+    let a = 0;
+    for (const i in totalPrice) {
+      let info = products.find();
     }
   }
   function count() {
@@ -78,8 +81,8 @@ const AppProvider = ({ children }) => {
   };
 
   async function fetchProducts() {
-    const res=await fetch(dummyProducts);
-    const data= await res.json();
+    const res = await fetch(dummyProducts);
+    const data = await res.json();
     console.log(data);
     setProducts(data);
   }
@@ -105,11 +108,12 @@ const AppProvider = ({ children }) => {
         wishItems,
         handleAddWish,
         handleDeleteWish,
-        searchTerm,setSearchTerm,
-        categoriesProducts, setCategoriesProducts,
-        city, setCity,
-        totalPrice,setTotalPrice,
-        months,setMonths
+        searchTerm,
+        setSearchTerm,
+        categoriesProducts,
+        setCategoriesProducts,
+        city,
+        setCity,
       }}
     >
       {children}

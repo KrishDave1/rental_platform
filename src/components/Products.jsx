@@ -6,17 +6,12 @@ import { AiOutlineStar } from "react-icons/ai";
 import { useState } from "react";
 
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const { products } = useGlobalContext();
-  const {
-    handleAdd,
-    cartItems,
-    categoriesProducts,
-    searchTerm,
-    months,
-    setMonths,
-  } = useGlobalContext();
+  const { handleAdd, cartItems, categoriesProducts, searchTerm } =
+    useGlobalContext();
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -31,6 +26,7 @@ const Products = () => {
   //     }
   //   );
   // }
+  const navigate = useNavigate();
 
   const displayProducts =
     categoriesProducts.length > 0 ? categoriesProducts : products;
@@ -65,6 +61,10 @@ const Products = () => {
   const handleClick = () => {
     window.scrollTo(0, 0);
   };
+  function handleRent(singleProduct) {
+    handleAdd(singleProduct.id);
+    navigate("/checkout");
+  }
 
   return (
     <>
@@ -107,16 +107,16 @@ const Products = () => {
                     Our Price: ₹ {PriceRs.toFixed(2)}/mo
                   </h5>
                 </div>
-                <div className="my-3">
+                {/* <div className="my-3">
                   Total Price for {months} months: ₹{" "}
                   {PriceRs.toFixed(2) * months}
-                </div>
-                <label htmlFor="months">Select the Time period</label>
-                <div className="border-solid border-2 border-slate-100">
+                </div> */}
+                {/* <label htmlFor="months">Select the Time period</label> */}
+                {/* <div className="border-solid border-2 border-slate-100">
                   <select
                     name="months"
                     id="months"
-                    onChange={(e) => setMonths(Number(e.target.value))}
+                    onChange={(e) => handleSelect(Number(e.target.value), id)}
                   >
                     {Array.from({ length: 12 }, (_, i) => i + 1).map((num) => (
                       <option value={num} key={num}>
@@ -124,7 +124,7 @@ const Products = () => {
                       </option>
                     ))}
                   </select>
-                </div>
+                </div> */}
                 <div>
                   {Percentage_off === "undefined" || Price_was === "undefined"
                     ? "M.R.P: " + "₹" + PriceRs.toFixed(2) + "/mo" + " (0% off)"
@@ -143,7 +143,12 @@ const Products = () => {
                       ? ""
                       : `(${cartItems[singleProduct.id]})`}
                   </button>
-                  <button className="buy-btn btn">Rent Now</button>
+                  <button
+                    className="buy-btn btn"
+                    onClick={() => handleRent(singleProduct)}
+                  >
+                    Rent Now
+                  </button>
                 </div>
               </footer>
               {/* <ToastContainer /> */}
