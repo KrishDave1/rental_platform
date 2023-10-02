@@ -6,28 +6,28 @@ import {
 import { useState, useEffect } from "react";
 const Home = (props) => {
   const[message, setMessage] = useState("");
-  useEffect(() => {
-    if (localStorage.getItem("access_token") === null) {
-      window.location.href = "/login";
-    } else {
-      (async () => {
-        try {
-          const { data } = await axios.get(
-            "http://127.0.0.1:8000/pseudo_Home/",
-            {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          console.log(data.message);
-          setMessage(data.message);
-        } catch (e) {
-          console.log("not auth");
-        }
-      })();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("access_token") === null) {
+  //     window.location.href = "/login";
+  //   } else {
+  //     (async () => {
+  //       try {
+  //         const { data } = await axios.get(
+  //           "http://127.0.0.1:8000/pseudo_Home/",
+  //           {
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //             },
+  //           }
+  //         );
+  //         console.log(data.message);
+  //         setMessage(data.message);
+  //       } catch (e) {
+  //         console.log("not auth");
+  //       }
+  //     })();
+  //   }
+  // }, []);
   return (
     <div className="">
       <Display_Slider />

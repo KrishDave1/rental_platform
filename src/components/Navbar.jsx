@@ -37,7 +37,7 @@ export const Navbar = () => {
   return (
     <nav className="">
       <ul className="list-none flex flex-wrap justify-evenly items-center bg-slate-200 h-18 text-xl ">
-        {isAuth ?
+        {/* {isAuth ? */}
           <Link to="/">
             {/* <li>
             {" "}
@@ -47,7 +47,7 @@ export const Navbar = () => {
 
             <img src="src/assets/images/logo.jpg" className="w-24 h-12 m-2" />
           </Link>
-          : null}
+          {/* : null} */}
 
         <li className="px-10">
           <button onClick={() => handleLoc()} className="text-xl">
@@ -67,10 +67,10 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className="px-10">
-          {isAuth ? 
+          {/* {isAuth ?  */}
             <Link to="/" onClick={handleClick}>Logout</Link>
             : <Link to="/login"> Login</Link>
-          }
+          {/* } */}
         </li>
         <li className="px-10">
           <Link to="/wishlist">
