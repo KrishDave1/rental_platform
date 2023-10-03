@@ -7,12 +7,18 @@ import Search from "./Search";
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineDropbox } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 export const Navbar = () => {
   const { setSidebar } = useGlobalContext();
   const { city } = useGlobalContext();
   const location = useLocation();
+  const [isAuth, setIsAuth] = useState(true);
+  useEffect(() => {
+    if (localStorage.getItem("access_token") !== null) {
+      setIsAuth(true);
+    }
+  }, [isAuth]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,17 +27,27 @@ export const Navbar = () => {
   function handleLoc() {
     setSidebar(true);
   }
+
+  function handleClick() {
+    alert("You have been logged out");
+    localStorage.removeItem("access_token");
+    setIsAuth(false);
+  }
+
   return (
     <nav className="">
       <ul className="list-none flex flex-wrap justify-evenly items-center bg-slate-200 h-18 text-xl ">
-        <Link to="/">
-          {/* <li>
+        {/* {isAuth ? */}
+          <Link to="/">
+            {/* <li>
             {" "}
             <AiOutlineDropbox />
             Rental.in
           </li> */}
-          <img src="src/assets/images/logo.jpg" className="w-24 h-12 m-2" />
-        </Link>
+
+            <img src="src/assets/images/logo.jpg" className="w-24 h-12 m-2" />
+          </Link>
+          {/* : null} */}
 
         <li className="px-10">
           <button onClick={() => handleLoc()} className="text-xl">
@@ -51,7 +67,10 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className="px-10">
-          <Link to="/login">Login</Link>
+          {/* {isAuth ?  */}
+            <Link to="/" onClick={handleClick}>Logout</Link>
+            : <Link to="/login"> Login</Link>
+          {/* } */}
         </li>
         <li className="px-10">
           <Link to="/wishlist">
