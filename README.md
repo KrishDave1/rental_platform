@@ -55,13 +55,15 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 2. **Clone Your Django Project** (if not already done):
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/KrishDave1/rental_platform.git
+   cd rental_platform
    ```
 
 3. **Install Required Packages**:
-
+   
    ```bash
+   cd Backend
+   cd Rental_Platform_New
    pip install django==4.2.5  # Install Django 4.2.5
    pip install djangorestframework  # Install Django REST framework
    pip install django-oauth-toolkit  # Install OAuth2 Provider
@@ -70,7 +72,7 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 
    - `django-oauth-toolkit` is important for OAuth2 authentication, and `django-cors-headers` is necessary if you're working with frontend and backend on different origins.
 
-4. **Database Migration**:
+5. **Database Migration**:
 
    ```bash
    python manage.py migrate
@@ -78,7 +80,7 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 
    This will create the necessary database tables based on your Django models.
 
-5. **Create Superuser** (Optional but recommended for accessing Django admin):
+6. **Create Superuser** (Optional but recommended for accessing Django admin):
 
    ```bash
    python manage.py createsuperuser
@@ -86,7 +88,7 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 
    Follow the prompts to create a superuser account.
 
-6. **Run Django Server**:
+7. **Run Django Server**:
 
    ```bash
    python manage.py runserver
@@ -99,16 +101,14 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 ### Prerequisites:
 
 1. **Node.js and npm**: Install Node.js (which includes npm) from the [official website](https://nodejs.org/).
+2. **Setup**: Setup Vite project using the below command
+  ```bash
+   npm create vite@latest
+   ```
 
 ### Installation:
 
-1. **Navigate to Frontend Directory**:
-
-   ```bash
-   cd frontend
-   ```
-
-2. **Install Required Packages**:
+1. **Install Required Packages**:
 
    ```bash
    npm install axios react react-dom react-router-dom react-icons react-paginate react-simple-image-slider react-social-icons react-toastify
@@ -116,7 +116,7 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 
    These packages include dependencies for React, routing, API calls, icons, pagination, image slider, social icons, and toast notifications.
 
-3. **Start React Server**:
+2. **Start React Server**:
 
    ```bash
    npm run dev
