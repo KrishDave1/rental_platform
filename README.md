@@ -111,7 +111,28 @@ Certainly! Here's a detailed guide for setting up your project with all the requ
 1. **Install Required Packages**:
 
    ```bash
-   npm install axios react react-dom react-router-dom react-icons react-paginate react-simple-image-slider react-social-icons react-toastify
+   npm install axios
+   ```
+   ```bash
+   npm install react react-dom
+   ```
+   ```bash
+   npm install react-router-dom
+   ```
+   ```bash
+   npm install react-icons
+   ```
+   ```bash
+   npm install react-paginate
+   ```
+   ```bash
+   npm install react-simple-image-slider
+   ```
+   ```bash
+   npm install react-toastify
+   ```
+   ```bash
+   npm install react-social-icons
    ```
 
    These packages include dependencies for React, routing, API calls, icons, pagination, image slider, social icons, and toast notifications.
